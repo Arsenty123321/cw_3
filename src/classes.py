@@ -13,7 +13,6 @@ class Operation:
             to_: str,
             from_: str = None
             ):
-
         self.pk = pk
         self.state = state
         self.date = date
@@ -46,3 +45,17 @@ class Operation:
         """
         payment_date = datetime.datetime.fromisoformat(self.date)
         return payment_date.strftime("%d.%m.%Y")
+
+    def __lt__(self, other):
+        return self.date < other.date
+
+    def __gt__(self, other):
+        return self.date > other.date
+
+    def __str__(self):
+        date = self.convert_payment_date()
+        return (
+            f"{date} {self.description}\n"
+            f"{self.from_} -> {self.to_}\n"
+            f"{self.amount} {self.currency}\n"
+        )
