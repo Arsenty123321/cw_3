@@ -25,7 +25,7 @@ def get_executed_operations(operations: List[dict]):
 def get_operation_instances(operations: List[dict]) -> List[Operation]:
     """
     :param operations: Получает словарь с операциями
-    :return: Возвращает список экземпляров класса Operation с заполнеными атрибутами
+    :return: Возвращает список экземпляров класса Operation с заполненными атрибутами
     """
     operation_instances = []
     for operation in operations:
